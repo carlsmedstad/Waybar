@@ -41,7 +41,7 @@ auto waybar::modules::MPD::update() -> void {
   if (connection_ != nullptr) {
     try {
       bool wasPlaying = playing();
-      if(!wasPlaying) {
+      if (!wasPlaying) {
         // Wait until the periodic_updater has stopped
         std::lock_guard periodic_guard(periodic_lock_);
       }
@@ -146,8 +146,8 @@ void waybar::modules::MPD::setLabel() {
       label_.get_style_context()->add_class("playing");
       label_.get_style_context()->remove_class("paused");
     } else if (paused()) {
-      format =
-        config_["format-paused"].isString() ? config_["format-paused"].asString() : config_["format"].asString();
+      format = config_["format-paused"].isString() ? config_["format-paused"].asString()
+                                                   : config_["format"].asString();
       label_.get_style_context()->add_class("paused");
       label_.get_style_context()->remove_class("playing");
     }
@@ -352,7 +352,8 @@ bool waybar::modules::MPD::handlePlayPause(GdkEventButton* const& e) {
 }
 
 bool waybar::modules::MPD::stopped() {
-  return connection_ == nullptr || state_ == MPD_STATE_UNKNOWN || state_ == MPD_STATE_STOP || status_ == nullptr;
+  return connection_ == nullptr || state_ == MPD_STATE_UNKNOWN || state_ == MPD_STATE_STOP ||
+         status_ == nullptr;
 }
 
 bool waybar::modules::MPD::playing() { return connection_ != nullptr && state_ == MPD_STATE_PLAY; }

@@ -2,7 +2,7 @@
 
 void waybar::modules::Memory::parseMeminfo() {
   const std::string data_dir_ = "/proc/meminfo";
-  std::ifstream info(data_dir_);
+  std::ifstream     info(data_dir_);
   if (!info.is_open()) {
     throw std::runtime_error("Can't open " + data_dir_);
   }

@@ -7,6 +7,7 @@
 #include <gtkmm/main.h>
 #include <gtkmm/window.h>
 #include <json/json.h>
+
 #include "AModule.hpp"
 #include "idle-inhibit-unstable-v1-client-protocol.h"
 #include "wlr-layer-shell-unstable-v1-client-protocol.h"

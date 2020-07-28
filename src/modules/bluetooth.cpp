@@ -1,7 +1,9 @@
 #include "modules/bluetooth.hpp"
-#include "util/rfkill.hpp"
+
 #include <linux/rfkill.h>
 #include <time.h>
+
+#include "util/rfkill.hpp"
 
 waybar::modules::Bluetooth::Bluetooth(const std::string& id, const Json::Value& config)
     : ALabel(config, "bluetooth", id, "{icon}", 10),
@@ -28,10 +30,7 @@ auto waybar::modules::Bluetooth::update() -> void {
   }
 
   label_.set_markup(
-      fmt::format(
-        format_,
-        fmt::arg("status", status_),
-        fmt::arg("icon", getIcon(0, status_))));
+      fmt::format(format_, fmt::arg("status", status_), fmt::arg("icon", getIcon(0, status_))));
 
   if (tooltipEnabled()) {
     if (config_["tooltip-format"].isString()) {

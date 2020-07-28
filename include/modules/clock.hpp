@@ -7,13 +7,14 @@
 #include <fmt/chrono.h>
 #endif
 #include <date/tz.h>
+
 #include "ALabel.hpp"
 #include "util/sleeper_thread.hpp"
 
 namespace waybar::modules {
 
 struct waybar_time {
-  std::locale locale;
+  std::locale         locale;
   date::zoned_seconds ztime;
 };
 
@@ -24,12 +25,12 @@ class Clock : public ALabel {
   auto update() -> void;
 
  private:
-  util::SleeperThread thread_;
-  std::locale locale_;
+  util::SleeperThread    thread_;
+  std::locale            locale_;
   const date::time_zone* time_zone_;
-  bool fixed_time_zone_;
-  date::year_month_day cached_calendar_ymd_;
-  std::string cached_calendar_text_;
+  bool                   fixed_time_zone_;
+  date::year_month_day   cached_calendar_ymd_;
+  std::string            cached_calendar_text_;
 
   auto calendar_text(const waybar_time& wtime) -> std::string;
   auto weekdays_header(const date::weekday& first_dow, std::ostream& os) -> void;

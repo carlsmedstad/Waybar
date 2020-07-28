@@ -9,9 +9,10 @@
 #include <netlink/genl/genl.h>
 #include <netlink/netlink.h>
 #include <sys/epoll.h>
+
 #include "ALabel.hpp"
-#include "util/sleeper_thread.hpp"
 #include "util/rfkill.hpp"
+#include "util/sleeper_thread.hpp"
 
 namespace waybar::modules {
 

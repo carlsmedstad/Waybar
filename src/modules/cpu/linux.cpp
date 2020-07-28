@@ -2,7 +2,7 @@
 
 std::vector<std::tuple<size_t, size_t>> waybar::modules::Cpu::parseCpuinfo() {
   const std::string data_dir_ = "/proc/stat";
-  std::ifstream info(data_dir_);
+  std::ifstream     info(data_dir_);
   if (!info.is_open()) {
     throw std::runtime_error("Can't open " + data_dir_);
   }

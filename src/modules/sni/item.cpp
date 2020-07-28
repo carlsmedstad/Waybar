@@ -1,6 +1,8 @@
 #include "modules/sni/item.hpp"
+
 #include <glibmm/main.h>
 #include <spdlog/spdlog.h>
+
 #include <fstream>
 
 template <>

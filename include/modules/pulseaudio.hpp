@@ -3,8 +3,10 @@
 #include <fmt/format.h>
 #include <pulse/pulseaudio.h>
 #include <pulse/volume.h>
+
 #include <algorithm>
 #include <array>
+
 #include "ALabel.hpp"
 
 namespace waybar::modules {

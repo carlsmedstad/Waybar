@@ -1,6 +1,7 @@
 #pragma once
 
 #include <json/json.h>
+
 #include "modules/clock.hpp"
 #ifdef HAVE_SWAY
 #include "modules/sway/mode.hpp"

@@ -1,4 +1,5 @@
 #include "modules/idle_inhibitor.hpp"
+
 #include "util/command.hpp"
 
 waybar::modules::IdleInhibitor::IdleInhibitor(const std::string& id, const Bar& bar,

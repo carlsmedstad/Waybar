@@ -1,4 +1,5 @@
 #include "modules/temperature.hpp"
+
 #include <filesystem>
 
 waybar::modules::Temperature::Temperature(const std::string& id, const Json::Value& config)
@@ -6,7 +7,10 @@ waybar::modules::Temperature::Temperature(const std::string& id, const Json::Val
   if (config_["hwmon-path"].isString()) {
     file_path_ = config_["hwmon-path"].asString();
   } else if (config_["hwmon-path-abs"].isString() && config_["input-filename"].isString()) {
-    file_path_ = (*std::filesystem::directory_iterator(config_["hwmon-path-abs"].asString())).path().string() + "/" + config_["input-filename"].asString();
+    file_path_ = (*std::filesystem::directory_iterator(config_["hwmon-path-abs"].asString()))
+                     .path()
+                     .string() +
+                 "/" + config_["input-filename"].asString();
   } else {
     auto zone = config_["thermal-zone"].isInt() ? config_["thermal-zone"].asInt() : 0;
     file_path_ = fmt::format("/sys/class/thermal/thermal_zone{}/temp", zone);
@@ -22,12 +26,12 @@ waybar::modules::Temperature::Temperature(const std::string& id, const Json::Val
 }
 
 auto waybar::modules::Temperature::update() -> void {
-  auto temperature = getTemperature();
+  auto     temperature = getTemperature();
   uint16_t temperature_c = std::round(temperature);
   uint16_t temperature_f = std::round(temperature * 1.8 + 32);
   uint16_t temperature_k = std::round(temperature + 273.15);
-  auto critical = isCritical(temperature_c);
-  auto format = format_;
+  auto     critical = isCritical(temperature_c);
+  auto     format = format_;
   if (critical) {
     format = config_["format-critical"].isString() ? config_["format-critical"].asString() : format;
     label_.get_style_context()->add_class("critical");
@@ -54,7 +58,7 @@ float waybar::modules::Temperature::getTemperature() {
     getline(temp, line);
   }
   temp.close();
-  auto                           temperature_c = std::strtol(line.c_str(), nullptr, 10) / 1000.0;
+  auto temperature_c = std::strtol(line.c_str(), nullptr, 10) / 1000.0;
   return temperature_c;
 }
 

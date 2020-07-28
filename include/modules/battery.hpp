@@ -7,10 +7,12 @@
 #endif
 #include <fmt/format.h>
 #include <sys/inotify.h>
+
 #include <algorithm>
 #include <fstream>
 #include <string>
 #include <vector>
+
 #include "ALabel.hpp"
 #include "util/sleeper_thread.hpp"
 
@@ -43,8 +45,8 @@ class Battery : public ALabel {
   std::vector<int>      wds_;
   std::string           old_status_;
 
-  util::SleeperThread   thread_;
-  util::SleeperThread   thread_timer_;
+  util::SleeperThread thread_;
+  util::SleeperThread thread_timer_;
 };
 
 }  // namespace waybar::modules

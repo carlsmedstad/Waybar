@@ -22,9 +22,9 @@ class Tags : public waybar::AModule {
   struct zriver_status_manager_v1 *status_manager_;
 
  private:
-  const waybar::Bar &      bar_;
-  Gtk::Box                 box_;
-  std::vector<Gtk::Button> buttons_;
+  const waybar::Bar &             bar_;
+  Gtk::Box                        box_;
+  std::vector<Gtk::Button>        buttons_;
   struct zriver_output_status_v1 *output_status_;
 };
 

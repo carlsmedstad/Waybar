@@ -2,8 +2,10 @@
 
 #include <fmt/format.h>
 #include <mpd/client.h>
+
 #include <condition_variable>
 #include <thread>
+
 #include "ALabel.hpp"
 
 namespace waybar::modules {

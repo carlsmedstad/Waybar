@@ -3,6 +3,7 @@
 #include <glibmm/markup.h>
 #include <gtkmm/label.h>
 #include <json/json.h>
+
 #include "AModule.hpp"
 
 namespace waybar {

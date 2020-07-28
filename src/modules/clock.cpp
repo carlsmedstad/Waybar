@@ -1,7 +1,7 @@
 #include "modules/clock.hpp"
 
-#include <time.h>
 #include <spdlog/spdlog.h>
+#include <time.h>
 
 #include <sstream>
 #include <type_traits>
@@ -15,7 +15,9 @@ using waybar::modules::waybar_time;
 waybar::modules::Clock::Clock(const std::string& id, const Json::Value& config)
     : ALabel(config, "clock", id, "{:%H:%M}", 60), fixed_time_zone_(false) {
   if (config_["timezone"].isString()) {
-    spdlog::warn("As using a timezone, some format args may be missing as the date library havn't got a release since 2018.");
+    spdlog::warn(
+        "As using a timezone, some format args may be missing as the date library havn't got a "
+        "release since 2018.");
     time_zone_ = date::locate_zone(config_["timezone"].asString());
     fixed_time_zone_ = true;
   }

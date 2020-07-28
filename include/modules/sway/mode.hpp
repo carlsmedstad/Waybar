@@ -1,6 +1,7 @@
 #pragma once
 
 #include <fmt/format.h>
+
 #include "ALabel.hpp"
 #include "bar.hpp"
 #include "client.hpp"

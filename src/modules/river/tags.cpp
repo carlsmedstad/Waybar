@@ -1,10 +1,11 @@
+#include "modules/river/tags.hpp"
+
 #include <gtkmm/button.h>
 #include <gtkmm/label.h>
 #include <spdlog/spdlog.h>
 #include <wayland-client.h>
 
 #include "client.hpp"
-#include "modules/river/tags.hpp"
 #include "river-status-unstable-v1-client-protocol.h"
 #include "xdg-output-unstable-v1-client-protocol.h"
 

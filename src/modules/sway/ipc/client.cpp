@@ -1,4 +1,5 @@
 #include "modules/sway/ipc/client.hpp"
+
 #include <fcntl.h>
 
 namespace waybar::modules::sway {
@@ -130,7 +131,7 @@ struct Ipc::ipc_response Ipc::send(int fd, uint32_t type, const std::string& pay
 
 void Ipc::sendCmd(uint32_t type, const std::string& payload) {
   std::lock_guard<std::mutex> lock(mutex_);
-  const auto res = Ipc::send(fd_, type, payload);
+  const auto                  res = Ipc::send(fd_, type, payload);
   signal_cmd.emit(res);
 }
 

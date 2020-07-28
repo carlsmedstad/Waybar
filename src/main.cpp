@@ -1,5 +1,7 @@
-#include <csignal>
 #include <spdlog/spdlog.h>
+
+#include <csignal>
+
 #include "client.hpp"
 
 int main(int argc, char* argv[]) {

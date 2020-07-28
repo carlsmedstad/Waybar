@@ -2,12 +2,14 @@
 
 #include <fmt/format.h>
 #include <unistd.h>
+
 #include <cstdint>
 #include <fstream>
 #include <numeric>
 #include <string>
 #include <utility>
 #include <vector>
+
 #include "ALabel.hpp"
 #include "util/sleeper_thread.hpp"
 

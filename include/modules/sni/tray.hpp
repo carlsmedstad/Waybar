@@ -1,6 +1,7 @@
 #pragma once
 
 #include <fmt/format.h>
+
 #include "AModule.hpp"
 #include "bar.hpp"
 #include "modules/sni/host.hpp"

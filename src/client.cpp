@@ -1,8 +1,11 @@
 #include "client.hpp"
+
 #include <fmt/ostream.h>
 #include <spdlog/spdlog.h>
+
 #include <fstream>
 #include <iostream>
+
 #include "util/clara.hpp"
 #include "util/json.hpp"
 
@@ -75,7 +78,7 @@ bool waybar::Client::isValidOutput(const Json::Value &config, struct waybar_outp
     auto config_output_name = config["output"].asString();
     if (!config_output_name.empty()) {
       if (config_output_name.substr(0, 1) == "!") {
-          return config_output_name.substr(1) != output.name;
+        return config_output_name.substr(1) != output.name;
       }
       return config_output_name == output.name;
     }
@@ -253,7 +256,8 @@ int waybar::Client::main(int argc, char *argv[]) {
   if (!log_level.empty()) {
     spdlog::set_level(spdlog::level::from_str(log_level));
   }
-  gtk_app = Gtk::Application::create(argc, argv, "fr.arouillard.waybar", Gio::APPLICATION_HANDLES_COMMAND_LINE);
+  gtk_app = Gtk::Application::create(
+      argc, argv, "fr.arouillard.waybar", Gio::APPLICATION_HANDLES_COMMAND_LINE);
   gdk_display = Gdk::Display::get_default();
   if (!gdk_display) {
     throw std::runtime_error("Can't find display");

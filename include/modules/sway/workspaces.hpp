@@ -1,10 +1,11 @@
 #pragma once
 
-#include <unordered_map>
 #include <fmt/format.h>
 #include <gtkmm/button.h>
 #include <gtkmm/label.h>
+
 #include <unordered_map>
+
 #include "AModule.hpp"
 #include "bar.hpp"
 #include "client.hpp"
@@ -20,7 +21,8 @@ class Workspaces : public AModule, public sigc::trackable {
   auto update() -> void;
 
  private:
-  static inline const std::string workspace_switch_cmd_ = "workspace --no-auto-back-and-forth \"{}\"";
+  static inline const std::string workspace_switch_cmd_ =
+      "workspace --no-auto-back-and-forth \"{}\"";
 
   static int convertWorkspaceNameToNum(std::string name);
 

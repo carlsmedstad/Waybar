@@ -4,7 +4,9 @@
 #include <giomm.h>
 #include <glibmm/refptr.h>
 #include <json/json.h>
+
 #include <tuple>
+
 #include "modules/sni/item.hpp"
 
 namespace waybar::modules::SNI {

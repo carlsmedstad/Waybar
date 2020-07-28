@@ -252,12 +252,12 @@ Gtk::Button &Workspaces::addButton(const Json::Value &node) {
   button.signal_clicked().connect([this, node] {
     try {
       if (node["target_output"].isString()) {
-        ipc_.sendCmd(
-            IPC_COMMAND,
-            fmt::format(workspace_switch_cmd_ + "; move workspace to output \"{}\"; " + workspace_switch_cmd_,
-                        node["name"].asString(),
-                        node["target_output"].asString(),
-                        node["name"].asString()));
+        ipc_.sendCmd(IPC_COMMAND,
+                     fmt::format(workspace_switch_cmd_ + "; move workspace to output \"{}\"; " +
+                                     workspace_switch_cmd_,
+                                 node["name"].asString(),
+                                 node["target_output"].asString(),
+                                 node["name"].asString()));
       } else {
         ipc_.sendCmd(IPC_COMMAND, fmt::format(workspace_switch_cmd_, node["name"].asString()));
       }

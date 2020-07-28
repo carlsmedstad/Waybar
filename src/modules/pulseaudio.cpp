@@ -150,7 +150,7 @@ void waybar::modules::Pulseaudio::sourceInfoCb(pa_context * /*context*/, const p
  * Called when the requested sink information is ready.
  */
 void waybar::modules::Pulseaudio::sinkInfoCb(pa_context * /*context*/, const pa_sink_info *i,
-                                             int /*eol*/, void *data) {
+                                             int /*eol*/, void *                           data) {
   auto pa = static_cast<waybar::modules::Pulseaudio *>(data);
   if (i != nullptr && pa->default_sink_name_ == i->name) {
     pa->pa_volume_ = i->volume;
@@ -225,8 +225,7 @@ auto waybar::modules::Pulseaudio::update() -> void {
     } else {
       label_.get_style_context()->remove_class("muted");
     }
-    format =
-      config_[format_name].isString() ? config_[format_name].asString() : format;
+    format = config_[format_name].isString() ? config_[format_name].asString() : format;
   }
   // TODO: find a better way to split source/sink
   std::string format_source = "{volume}%";

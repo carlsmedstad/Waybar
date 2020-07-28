@@ -1,8 +1,10 @@
 #pragma once
 
 #include <fmt/format.h>
+
 #include <csignal>
 #include <string>
+
 #include "ALabel.hpp"
 #include "util/command.hpp"
 #include "util/json.hpp"

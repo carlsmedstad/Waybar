@@ -1,4 +1,5 @@
 #include "modules/sni/watcher.hpp"
+
 #include <spdlog/spdlog.h>
 
 using namespace waybar::modules::SNI;
